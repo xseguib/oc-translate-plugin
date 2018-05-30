@@ -1,4 +1,4 @@
-<?php namespace Weglot\TranslatePlugin;
+<?php namespace Weglot\Translate;
 
 use App;
 use Config;

@@ -17,8 +17,8 @@
                 'cache' => true,
 
                 'laravel' => [
-                    'controller_namespace' => 'App\Http\Controllers',
-                    'routes_web' => 'routes/web.php'
+                    'controller_namespace' => 'Cms\Classes\CmsController',
+                    'routes_web' => 'modules/cms/routes.php'
                 ]
             ],
         ],
