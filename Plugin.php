@@ -4,6 +4,7 @@ use App;
 use Config;
 use System\Classes\PluginBase;
 use Illuminate\Foundation\AliasLoader;
+use Weglot\Translate\Providers\Routing;
 
 /**
  * Class Plugin.
@@ -31,6 +32,8 @@ class Plugin extends PluginBase
     {
         // Setup required packages
         $this->bootPackages();
+
+        App::register(Routing::class);
     }
 
     /**
