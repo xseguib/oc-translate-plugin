@@ -1,0 +1,21 @@
+plugin:
+  name: "Weglot Translate Plugin"
+  description: "Translate your October CMS website easily."
+  author: "Baptiste Leduc"
+  icon: "icon-language"
+  homepage: "https://github.com/weglot/october-translate-plugin"
+
+permissions:
+  weglot.translate.settings:
+    tab: "Weglot Translate"
+    label: "Manage Weglot settings"
+
+settings:
+  config:
+    label: "Weglot Translate"
+    icon: "icon-language"
+    description: "Define Weglot settings"
+    class: "Weglot\\Translate\\Models\\Settings"
+    permissions:
+    - "weglot.translate.settings"
+    order: 600
