@@ -16,7 +16,7 @@ class DestinationLanguages extends FormWidgetBase
      */
     public function render()
     {
-        $this->vars['languages'] = $this->getDestinationLanguagesData();
+        $this->vars['languages'] = $this->getLanguagesData();
         $this->vars['selector'] = $this->getLoadValue();
 
         return $this->makePartial('destinationlanguages');
@@ -42,7 +42,7 @@ class DestinationLanguages extends FormWidgetBase
     /**
      * @return array
      */
-    private function getDestinationLanguagesData()
+    private function getLanguagesData()
     {
         return json_encode(array_values(Languages::data()));
     }
