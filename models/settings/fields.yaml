@@ -10,8 +10,7 @@ fields:
   original_language:
     label: "Original language"
     span: "left"
-    type: "text"
-    default: "en"
+    type: "Weglot\\Translate\\FormWidgets\\OriginalLanguage"
     required: true
 
   destination_languages:
