@@ -9,6 +9,7 @@ use Weglot\Parser\ConfigProvider\ServerConfigProvider;
 use Weglot\Parser\Parser;
 use Weglot\Util\Url;
 use Weglot\Util\Server;
+use Weglot\Translate\Models\Settings;
 
 /**
  * Class Routing.
@@ -34,18 +35,19 @@ class Routing extends ServiceProvider
         Event::listen('cms.router.beforeRoute', function($url, Router $router) {
             if(!$this->active) {
                 $this->active = true;
+                $settings = Settings::instance();
 
                 // url instance :)
                 $fullUrl = Server::fullUrl($_SERVER);
                 $urlInstance = new Url(
                     $fullUrl,
-                    config('weglot-translate.original_language'),
-                    config('weglot-translate.destination_languages')
+                    $settings->original_language,
+                    $settings->destination_languages
                 );
 
                 if ($urlInstance->getDefault() !== $urlInstance->detectCurrentLanguage() &&
                     $urlInstance->isTranslable()) {
-                    $client = new Client('wg_74d8b29411450e974c6d250cde53cf7a');
+                    $client = new Client($settings->api_key);
 
                     $config = new ServerConfigProvider();
                     $parser = new Parser($client, $config);
