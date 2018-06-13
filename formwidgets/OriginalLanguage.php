@@ -17,6 +17,7 @@ class OriginalLanguage extends FormWidgetBase
     public function render()
     {
         $this->vars['languages'] = $this->getLanguagesData();
+        $this->vars['data'] = $this->getLanguagesData(true);
         $this->vars['selector'] = $this->getLoadValue();
 
         return $this->makePartial('originallanguage');
@@ -40,10 +41,15 @@ class OriginalLanguage extends FormWidgetBase
     }
 
     /**
-     * @return array
+     * @param bool $withKeys
+     * @return string
      */
-    private function getLanguagesData()
+    private function getLanguagesData($withKeys = false)
     {
-        return json_encode(array_values(Languages::data()));
+        $languages = Languages::data();
+        if(!$withKeys) {
+            $languages = array_values($languages);
+        }
+        return json_encode($languages);
     }
 }
