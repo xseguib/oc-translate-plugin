@@ -3,6 +3,7 @@
 use Cms\Classes\Controller;
 use Cms\Classes\Router;
 use Event;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Weglot\Client\Client;
 use Weglot\Parser\ConfigProvider\ServerConfigProvider;
@@ -10,6 +11,7 @@ use Weglot\Parser\Parser;
 use Weglot\Util\Url;
 use Weglot\Util\Server;
 use Weglot\Translate\Models\Settings;
+use Cache\Adapter\Illuminate\IlluminateCachePool;
 
 /**
  * Class Routing.
@@ -48,6 +50,11 @@ class Routing extends ServiceProvider
                 if ($urlInstance->getDefault() !== $urlInstance->detectCurrentLanguage() &&
                     $urlInstance->isTranslable()) {
                     $client = new Client($settings->api_key);
+
+                    if($settings->cache) {
+                        $cachePool = new IlluminateCachePool(Cache::getStore());
+                        $client->setCacheItemPool($cachePool);
+                    }
 
                     $config = new ServerConfigProvider();
                     $parser = new Parser($client, $config);

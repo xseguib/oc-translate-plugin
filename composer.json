@@ -28,7 +28,8 @@
   ],
   "require": {
     "php": ">=7.1.3",
-    "weglot/weglot-php": "^0.5"
+    "weglot/weglot-php": "^0.5",
+    "cache/illuminate-adapter": "^1.1@dev"
   },
   "minimum-stability": "dev"
 }
