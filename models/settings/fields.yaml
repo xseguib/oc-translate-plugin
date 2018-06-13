@@ -19,11 +19,6 @@ fields:
     type: "Weglot\\Translate\\FormWidgets\\DestinationLanguages"
     required: true
 
-  exclude_blocks:
-    label: "Exclude blocks"
-    span: "full"
-    required: false
-
   cache:
     label: "Cache"
     span: "full"
