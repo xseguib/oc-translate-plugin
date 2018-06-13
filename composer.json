@@ -28,7 +28,7 @@
   ],
   "require": {
     "php": ">=7.1.3",
-    "weglot/translate-laravel": "^0.3"
+    "weglot/weglot-php": "^0.5"
   },
   "minimum-stability": "dev"
 }
