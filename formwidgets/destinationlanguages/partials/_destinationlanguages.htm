@@ -6,7 +6,7 @@
 </div>
 
 <script>
-    $('#wg-destination-languages-selector').selectize({
+    var wgDestinationLanguagesElement = $('#wg-destination-languages-selector').selectize({
         delimiter: '|',
         persist: false,
         maxItems: null,
@@ -28,4 +28,6 @@
             }
         }
     });
+
+    var wgDestinationLanguages = wgDestinationLanguagesElement[0].selectize;
 </script>

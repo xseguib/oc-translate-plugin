@@ -11,7 +11,10 @@
 
 <br /><br /><br />
 <script>
-    $('#wg-original-language-selector').selectize({
+    var data = <?= $data ?>;
+    var lastValue = null;
+
+    var wgOriginalLanguageElement = $('#wg-original-language-selector').selectize({
         delimiter: '|',
         persist: false,
         maxItems: null,
@@ -31,6 +34,40 @@
                          '<span class="english">' + escape(item.english) + ' [' + escape(item.code) + ']</span>' +
                        '</div>';
             }
+        },
+        onChange: function(value) {
+            var doRemoveNewValue = true;
+
+            // triggered change - in this case, value is undefined so we have to use `.val()` function
+            if(typeof value === "undefined") {
+                value = wgOriginalLanguageElement.val();
+            }
+
+            // if we removed the value, there is no "new value", we just handle lastValue stuff ...
+            if(value === "") {
+                value = null;
+                doRemoveNewValue = false;
+            }
+
+            // addOption - based on last value
+            if(lastValue !== null) {
+                wgDestinationLanguages.addOption(data[lastValue]);
+            }
+
+            if(doRemoveNewValue) {
+                // removeOption - based on current value
+                wgDestinationLanguages.removeOption(value);
+            }
+
+            // refreshOptions & save last value
+            wgDestinationLanguages.refreshOptions(false);
+            lastValue = value;
         }
+    });
+
+    var wgOriginalLanguage = wgOriginalLanguageElement[0].selectize;
+
+    $(function() {
+        wgOriginalLanguage.trigger('change');
     });
 </script>
