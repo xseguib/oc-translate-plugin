@@ -2,7 +2,11 @@
         class="layout-absolute"
         data-control="languages-selector"
 >
-    <select id="wg-original-language-selector" name="original_language" class="languages"></select>
+    <select id="wg-original-language-selector" name="original_language" class="languages">
+        <?php if($selector !== '') { ?>
+            <option value="<?= $selector ?>" selected></option>
+        <?php } ?>
+    </select>
 </div>
 
 <br /><br /><br />
