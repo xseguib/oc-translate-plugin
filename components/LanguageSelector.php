@@ -29,7 +29,7 @@ class LanguageSelector extends ComponentBase
         return [
             'template' => [
                 'title'             => 'Template',
-                'description'       => 'Template you wanna use for your language selector',
+                'description'       => 'Template you want to use for your language selector',
                 'default'           => 'horizontal',
                 'type'              => 'dropdown'
             ]
