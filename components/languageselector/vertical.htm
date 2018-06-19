@@ -1,0 +1,3 @@
+{% for lang in __SELF__.languages() %}
+    <a href="{{ lang.url }}" data-wg-notranslate class="weglot-link weglot-{{ lang.code }}">{{ lang.local }}</a>
+{% endfor %}
