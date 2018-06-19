@@ -1,4 +1,6 @@
-<?php namespace Weglot\Translate\Models;
+<?php
+
+namespace Weglot\Translate\Models;
 
 use Model;
 

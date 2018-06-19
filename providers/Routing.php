@@ -1,4 +1,6 @@
-<?php namespace Weglot\Translate\Providers;
+<?php
+
+namespace Weglot\Translate\Providers;
 
 use Cms\Classes\Controller;
 use Cms\Classes\Router;
@@ -8,6 +10,7 @@ use Illuminate\Support\ServiceProvider;
 use Weglot\Client\Client;
 use Weglot\Parser\ConfigProvider\ServerConfigProvider;
 use Weglot\Parser\Parser;
+use Weglot\Translate\Models\ReplaceLinks;
 use Weglot\Util\Url;
 use Weglot\Util\Server;
 use Weglot\Translate\Models\Settings;
@@ -59,13 +62,20 @@ class Routing extends ServiceProvider
                     $config = new ServerConfigProvider();
                     $parser = new Parser($client, $config);
 
-                    // get all the contents & translate it !
+                    // get all the contents
                     $content = $this->controller->run($urlInstance->getPath())->content();
+
+
+                    // translate all our content !
                     $translated = $parser->translate(
                         $content,
                         $urlInstance->getDefault(),
                         $urlInstance->detectCurrentLanguage()
                     );
+
+                    // replace links depending on current language
+                    $replaceLinks = new ReplaceLinks($urlInstance, $translated);
+                    $translated = $replaceLinks->handle();
 
                     echo $translated;
                     exit;
