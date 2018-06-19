@@ -1,4 +1,4 @@
-<?php namespace Weglot\Translate\FormWidgets;
+<?php namespace Weglot\TranslatePlugin\FormWidgets;
 
 use Request;
 use Backend\Classes\FormWidgetBase;

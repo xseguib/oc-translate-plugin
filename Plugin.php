@@ -1,9 +1,9 @@
-<?php namespace Weglot\Translate;
+<?php namespace Weglot\TranslatePlugin;
 
 use App;
 use Config;
 use System\Classes\PluginBase;
-use Weglot\Translate\Providers\Routing;
+use Weglot\TranslatePlugin\Providers\Routing;
 
 /**
  * Class Plugin.

@@ -1,11 +1,11 @@
 <?php
 
-namespace Weglot\Translate\Models;
+namespace Weglot\TranslatePlugin\Models;
 
-use Weglot\Translate\Models\Links\ReplaceA;
-use Weglot\Translate\Models\Links\ReplaceCanonical;
-use Weglot\Translate\Models\Links\ReplaceForm;
-use Weglot\Translate\Models\Links\ReplaceMeta;
+use Weglot\TranslatePlugin\Models\Links\ReplaceA;
+use Weglot\TranslatePlugin\Models\Links\ReplaceCanonical;
+use Weglot\TranslatePlugin\Models\Links\ReplaceForm;
+use Weglot\TranslatePlugin\Models\Links\ReplaceMeta;
 use Weglot\Util\Url;
 
 class ReplaceLinks

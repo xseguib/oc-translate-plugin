@@ -1,6 +1,6 @@
 <?php
 
-namespace Weglot\Translate\Providers;
+namespace Weglot\TranslatePlugin\Providers;
 
 use Cms\Classes\Controller;
 use Cms\Classes\Router;
@@ -10,10 +10,10 @@ use Illuminate\Support\ServiceProvider;
 use Weglot\Client\Client;
 use Weglot\Parser\ConfigProvider\ServerConfigProvider;
 use Weglot\Parser\Parser;
-use Weglot\Translate\Models\ReplaceLinks;
+use Weglot\TranslatePlugin\Models\ReplaceLinks;
 use Weglot\Util\Url;
 use Weglot\Util\Server;
-use Weglot\Translate\Models\Settings;
+use Weglot\TranslatePlugin\Models\Settings;
 use Cache\Adapter\Illuminate\IlluminateCachePool;
 
 /**

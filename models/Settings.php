@@ -1,6 +1,6 @@
 <?php
 
-namespace Weglot\Translate\Models;
+namespace Weglot\TranslatePlugin\Models;
 
 use Model;
 
