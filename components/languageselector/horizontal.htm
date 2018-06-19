@@ -1,0 +1,7 @@
+<div id="weglot-language-picker">
+    <ul class="weglot-navigation" data-wg-notranslate>
+        {% for lang in __SELF__.languages() %}
+            <li class="weglot-{{ lang.code }}"><a href="{{ lang.url }}" class="weglot-{{ lang.code }}">{{ lang.local }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

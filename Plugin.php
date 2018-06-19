@@ -1,8 +1,11 @@
-<?php namespace Weglot\TranslatePlugin;
+<?php
+
+namespace Weglot\TranslatePlugin;
 
 use App;
 use Config;
 use System\Classes\PluginBase;
+use Weglot\TranslatePlugin\Components\LanguageSelector;
 use Weglot\TranslatePlugin\Providers\Routing;
 
 /**
@@ -30,5 +33,15 @@ class Plugin extends PluginBase
     public function boot()
     {
         App::register(Routing::class);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function registerComponents()
+    {
+        return [
+            LanguageSelector::class => 'WeglotLanguages'
+        ];
     }
 }

@@ -10,13 +10,13 @@ fields:
   original_language:
     label: "Original language"
     span: "left"
-    type: "Weglot\\Translate\\FormWidgets\\OriginalLanguage"
+    type: "Weglot\\TranslatePlugin\\FormWidgets\\OriginalLanguage"
     required: true
 
   destination_languages:
     label: "Destination languages"
     span: "right"
-    type: "Weglot\\Translate\\FormWidgets\\DestinationLanguages"
+    type: "Weglot\\TranslatePlugin\\FormWidgets\\DestinationLanguages"
     required: true
 
   cache:
