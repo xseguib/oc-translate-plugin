@@ -1,1 +1,5 @@
-Selector
+{% if __SELF__.property('template') == "vertical" %}
+    {% partial '@vertical' %}
+{% else %}
+    {% partial '@horizontal' %}
+{% endif %}

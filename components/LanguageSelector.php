@@ -16,4 +16,51 @@ class LanguageSelector extends ComponentBase
             'description' => 'Display a language selector based on Weglot settings.'
         ];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function defineProperties()
+    {
+        return [
+            'template' => [
+                'title'             => 'Template',
+                'description'       => 'Template you wanna use for your language selector',
+                'default'           => 'horizontal',
+                'type'              => 'dropdown'
+            ]
+        ];
+    }
+
+    /**
+     * Options for template parameter
+     *
+     * @return array
+     */
+    public function getTemplateOptions()
+    {
+        return [
+            'horizontal' => 'Horizontal',
+            'vertical' => 'Vertical'
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function languages()
+    {
+        return [
+            [
+                'code' => 'en',
+                'local' => 'English',
+                'url' => 'http://october.local/'
+            ],
+            [
+                'code' => 'fr',
+                'local' => 'Français',
+                'url' => 'http://october.local/fr/'
+            ]
+        ];
+    }
 }
