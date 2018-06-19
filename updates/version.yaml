@@ -1,3 +1,4 @@
 1.0.0: First version of Weglot Translate
 1.1.0: Adding Url rewriting when being on a translated page
 1.1.1: Updating namespace from Translate to TranslatePlugin
+1.2.0: Adding Language Selector component
