@@ -1,0 +1,33 @@
+<div
+        class="layout-absolute"
+        data-control="languages-selector"
+>
+    <input id="wg-destination-languages-selector" name="destination_languages" class="languages" type="text" placeholder="Pick some languages ..." value="<?= $selector ?>" />
+</div>
+
+<script>
+    var wgDestinationLanguagesElement = $('#wg-destination-languages-selector').selectize({
+        delimiter: '|',
+        persist: false,
+        maxItems: null,
+        valueField: 'code',
+        labelField: 'local',
+        searchField: ['code', 'english', 'local'],
+        sortField: [
+            {field: 'code', direction: 'asc'},
+            {field: 'english', direction: 'asc'}
+        ],
+        plugins: ['remove_button'],
+        options: <?= $languages ?>,
+        render: {
+            option: function(item, escape) {
+                return '<div>' +
+                         '<span class="local">' + escape(item.local) + '</span>' +
+                         '<span class="english">' + escape(item.english) + ' [' + escape(item.code) + ']</span>' +
+                       '</div>';
+            }
+        }
+    });
+
+    var wgDestinationLanguages = wgDestinationLanguagesElement[0].selectize;
+</script>

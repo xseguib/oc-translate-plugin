@@ -1,0 +1,27 @@
+fields:
+  api_key:
+    label: "API Key"
+    span: "full"
+    type: "text"
+    comment: 'You can get an API Key by signing up on <a href="https://dashboard.weglot.com/register?origin=7">Weglot</a>.'
+    commentHtml: true
+    required: true
+
+  original_language:
+    label: "Original language"
+    span: "left"
+    type: "Weglot\\Translate\\FormWidgets\\OriginalLanguage"
+    required: true
+
+  destination_languages:
+    label: "Destination languages"
+    span: "right"
+    type: "Weglot\\Translate\\FormWidgets\\DestinationLanguages"
+    required: true
+
+  cache:
+    label: "Cache"
+    span: "full"
+    type: "checkbox"
+    default: false
+    required: false
