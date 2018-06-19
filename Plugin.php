@@ -44,5 +44,4 @@ class Plugin extends PluginBase
             LanguageSelector::class => 'WeglotLanguages'
         ];
     }
-
 }
