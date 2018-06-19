@@ -1,6 +1,6 @@
 <?php
 
-namespace Weglot\TranslatePlugin;
+namespace Weglot\TranslatePlugin\Components;
 
 use Cms\Classes\ComponentBase;
 

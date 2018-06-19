@@ -5,6 +5,7 @@ namespace Weglot\TranslatePlugin;
 use App;
 use Config;
 use System\Classes\PluginBase;
+use Weglot\TranslatePlugin\Components\LanguageSelector;
 use Weglot\TranslatePlugin\Providers\Routing;
 
 /**
