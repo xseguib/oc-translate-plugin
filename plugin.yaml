@@ -15,7 +15,7 @@ settings:
     label: "Weglot Translate"
     icon: "icon-language"
     description: "Define Weglot settings"
-    class: "Weglot\\Translate\\Models\\Settings"
+    class: "Weglot\\TranslatePlugin\\Models\\Settings"
     permissions:
     - "weglot.translate.settings"
     order: 600

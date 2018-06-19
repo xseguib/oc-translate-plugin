@@ -1,6 +1,6 @@
 <?php
 
-namespace Weglot\Translate\Models\Links;
+namespace Weglot\TranslatePlugin\Models\Links;
 
 class ReplaceA extends AbstractReplace
 {

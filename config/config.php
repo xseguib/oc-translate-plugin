@@ -2,7 +2,7 @@
     'packages' => [
         'weglot/translate-laravel' => [
             'providers' => [
-                '\Weglot\Translate\TranslateServiceProvider',
+                '\Weglot\TranslatePlugin\TranslateServiceProvider',
             ],
 
             'config_namespace' => 'weglot-translate',
