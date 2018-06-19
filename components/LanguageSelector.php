@@ -3,6 +3,10 @@
 namespace Weglot\TranslatePlugin\Components;
 
 use Cms\Classes\ComponentBase;
+use Weglot\Client\Factory\Languages;
+use Weglot\TranslatePlugin\Models\Settings;
+use Weglot\Util\Server;
+use Weglot\Util\Url;
 
 class LanguageSelector extends ComponentBase
 {
@@ -50,17 +54,24 @@ class LanguageSelector extends ComponentBase
      */
     public function languages()
     {
-        return [
-            [
-                'code' => 'en',
-                'local' => 'English',
-                'url' => 'http://october.local/'
-            ],
-            [
-                'code' => 'fr',
-                'local' => 'Français',
-                'url' => 'http://october.local/fr/'
-            ]
-        ];
+        $settings = Settings::instance();
+        $fullUrl = Server::fullUrl($_SERVER);
+        $urlToolkit = new Url(
+            $fullUrl,
+            $settings->original_language,
+            $settings->destination_languages
+        );
+        $languages = Languages::data();
+
+        $data = [];
+        foreach($urlToolkit->currentRequestAllUrls() as $code => $url) {
+            $data[] = [
+                'code' => $code,
+                'local' => $languages[$code]['local'],
+                'url' => $url
+            ];
+        }
+
+        return $data;
     }
 }
