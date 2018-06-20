@@ -49,6 +49,7 @@ class Routing extends ServiceProvider
                     $settings->original_language,
                     $settings->destination_languages
                 );
+                $urlInstance->setExcludedUrls($settings->excludeUrls);
 
                 if ($urlInstance->getDefault() !== $urlInstance->detectCurrentLanguage() &&
                     $urlInstance->isTranslable()) {
