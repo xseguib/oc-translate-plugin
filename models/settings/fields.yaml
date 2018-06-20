@@ -25,3 +25,11 @@ fields:
     type: "checkbox"
     default: false
     required: false
+
+  excludeUrls:
+    label: "Excluded urls"
+    span: "full"
+    type: "Weglot\\TranslatePlugin\\FormWidgets\\MultipleRows"
+    commentAbove: 'You can exclude a whole urls from being translated. This field does support regexes.'
+    default: false
+    required: false
