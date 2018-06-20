@@ -5,7 +5,7 @@
                 <input type="text" name="<?= $fieldName ?>[]" class="form-control" maxlength="255" />
             </div>
             <div class="col-sm-1">
-                <a class="remove" href="#" onclick="removeRow($(this))">
+                <a class="remove" href="#" onclick="<?= lcfirst($fieldName) ?>RemoveRow($(this))">
                     <i class="icon-trash"></i>
                 </a>
             </div>
@@ -21,25 +21,25 @@
 </div>
 
 <script>
-    function addTemplate() {
+    function <?= lcfirst($fieldName) ?>AddTemplate() {
         var template = $('#multipleRows<?= ucfirst($fieldName) ?> .template').clone();
         template.show();
         template.removeClass('template');
 
-        $('.multiplerows .elements').append(template);
+        $('#multipleRows<?= ucfirst($fieldName) ?>.multiplerows .elements').append(template);
         return template;
     }
 
-    function removeRow(element) {
+    function <?= lcfirst($fieldName) ?>RemoveRow(element) {
         element.parent().parent().remove();
     }
 
-    $('#multipleRows<?= ucfirst($fieldName) ?> .footer .btn.add').on('click', addTemplate);
+    $('#multipleRows<?= ucfirst($fieldName) ?> .footer .btn.add').on('click', <?= lcfirst($fieldName) ?>AddTemplate);
     $(function() {
         var values = <?= $values ?>;
         for (var i = 0; i < values.length; i++) {
             var current = values[i];
-            var template = addTemplate();
+            var template = <?= lcfirst($fieldName) ?>AddTemplate();
             template.find('input[type="text"]').val(current);
         }
     });
