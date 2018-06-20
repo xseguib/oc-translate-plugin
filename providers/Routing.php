@@ -61,7 +61,7 @@ class Routing extends ServiceProvider
                     }
 
                     $config = new ServerConfigProvider();
-                    $parser = new Parser($client, $config);
+                    $parser = new Parser($client, $config, $settings->excludeBlocks);
 
                     // get all the contents
                     $content = $this->controller->run($urlInstance->getPath())->content();
