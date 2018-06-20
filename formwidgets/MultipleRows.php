@@ -15,7 +15,12 @@ class MultipleRows extends FormWidgetBase
     public function render()
     {
         $this->vars['fieldName'] = $this->formField->fieldName;
-        $this->vars['values'] = json_encode($this->getLoadValue());
+
+        $values = $this->getLoadValue();
+        if($values === null) {
+            $values = [];
+        }
+        $this->vars['values'] = json_encode($values);
 
         return $this->makePartial('multiplerows');
     }
