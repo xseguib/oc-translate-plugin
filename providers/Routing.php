@@ -64,8 +64,7 @@ class Routing extends ServiceProvider
 
                     // get all the contents
                     $content = $this->controller->run($urlInstance->getPath())->content();
-
-
+                    
                     // translate all our content !
                     $translated = $parser->translate(
                         $content,
