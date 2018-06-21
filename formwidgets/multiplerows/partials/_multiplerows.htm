@@ -1,0 +1,47 @@
+<div id="multipleRows<?= ucfirst($fieldName) ?>" class="multiplerows">
+    <div class="elements">
+        <div class="template form-group" style="display: none;">
+            <div class="row col-sm-11">
+                <input type="text" name="<?= $fieldName ?>[]" class="form-control" maxlength="255" />
+            </div>
+            <div class="col-sm-1">
+                <a class="remove" href="#" onclick="removeRow($(this))">
+                    <i class="icon-trash"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="form-group">
+            <div class="row col-sm-12">
+                <button type="button" class="btn btn-default add">Add row</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addTemplate() {
+        var template = $('#multipleRows<?= ucfirst($fieldName) ?> .template').clone();
+        template.show();
+        template.removeClass('template');
+
+        $('.multiplerows .elements').append(template);
+        return template;
+    }
+
+    function removeRow(element) {
+        element.parent().parent().remove();
+    }
+
+    $('#multipleRows<?= ucfirst($fieldName) ?> .footer .btn.add').on('click', addTemplate);
+    $(function() {
+        var values = <?= $values ?>;
+        for (var i = 0; i < values.length; i++) {
+            var current = values[i];
+            var template = addTemplate();
+            template.find('input[type="text"]').val(current);
+        }
+    });
+</script>
+
