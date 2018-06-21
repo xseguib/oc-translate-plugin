@@ -33,3 +33,11 @@ fields:
     commentAbove: 'You can exclude a whole urls from being translated. This field does support regexes.'
     default: false
     required: false
+
+  excludeBlocks:
+    label: "Excluded blocks"
+    span: "full"
+    type: "Weglot\\TranslatePlugin\\FormWidgets\\MultipleRows"
+    commentAbove: 'You can exclude a whole blocks of DOM from being translated. This field does support CSS selector syntax.'
+    default: false
+    required: false
