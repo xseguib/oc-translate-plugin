@@ -49,6 +49,7 @@ class Routing extends ServiceProvider
                     $settings->original_language,
                     $settings->destination_languages
                 );
+                $urlInstance->setExcludedUrls($settings->excludeUrls);
 
                 if ($urlInstance->getDefault() !== $urlInstance->detectCurrentLanguage() &&
                     $urlInstance->isTranslable()) {
@@ -60,12 +61,11 @@ class Routing extends ServiceProvider
                     }
 
                     $config = new ServerConfigProvider();
-                    $parser = new Parser($client, $config);
+                    $parser = new Parser($client, $config, $settings->excludeBlocks);
 
                     // get all the contents
                     $content = $this->controller->run($urlInstance->getPath())->content();
-
-
+                    
                     // translate all our content !
                     $translated = $parser->translate(
                         $content,

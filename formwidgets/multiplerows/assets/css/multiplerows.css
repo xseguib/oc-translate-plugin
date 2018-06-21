@@ -1,0 +1,15 @@
+.multiplerows .form-group {
+    padding-bottom: 0;
+}
+
+.multiplerows .elements .row {
+    margin-bottom: 10px;
+}
+
+.multiplerows .elements .remove {
+    font-size: 2.5rem;
+}
+
+.multiplerows .elements .remove:hover{
+    text-decoration: none;
+}
