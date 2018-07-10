@@ -1,5 +1,5 @@
 {
-  "name": "weglot/october-translate-plugin",
+  "name": "weglot/oc-translate-plugin",
   "type": "october-plugin",
   "description": "Translate your October CMS website easily",
   "license": "MIT",
